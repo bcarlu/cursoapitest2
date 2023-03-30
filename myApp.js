@@ -8,13 +8,19 @@ let app = express();
 //     res.send("Hello Express");
 // })
 
+// Third exercise
 app.use("/public", express.static('public'));
-
 
 // Second exercise
 app.get("/", function(req, res){
     var absolutePath = __dirname + "/views/index.html";
     res.sendFile(absolutePath);
+})
+
+// Fourth exercise
+app.get("/json", function(req, res){
+    var obj = {"message": "Hello json"};
+    res.json(obj);
 })
 
 
