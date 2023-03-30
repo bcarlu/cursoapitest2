@@ -8,11 +8,16 @@ let app = express();
 //     res.send("Hello Express");
 // })
 
+app.use("/public", express.static('public'));
+
+
 // Second exercise
 app.get("/", function(req, res){
     var absolutePath = __dirname + "/views/index.html";
     res.sendFile(absolutePath);
 })
+
+
 
 
 
