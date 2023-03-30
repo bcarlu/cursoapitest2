@@ -38,6 +38,13 @@ app.get("/json", function(req, res){
     res.json(obj)
 })
 
+// Seventh exercise
+app.get("/now", function(req,res,next){
+    req.time = new Date().toString();
+    next();
+}, function(req,res,next){
+    res.json({time: req.time});
+})
 
 
 
