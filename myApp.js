@@ -12,6 +12,13 @@ let app = express();
 // Third exercise
 app.use("/public", express.static('public'));
 
+// Sixth exercise
+app.use(function(req, res, next){
+    var message = req.method + " " + req.path + " - " + req.ip;
+    console.log(message);
+    next();
+})
+
 // Second exercise
 app.get("/", function(req, res){
     var absolutePath = __dirname + "/views/index.html";
@@ -26,16 +33,9 @@ app.get("/", function(req, res){
 
 // Fifth exercise
 app.get("/json", function(req, res){
-    // var obj = process.env.MESSAGE_STYLE == "uppercase" ? {"message": "HELLO JSON"} : {"message": "Hello json"};
-    // res.json(obj);
     var response = "Hello json";
-    if(process.env.MESSAGE_STYLE === "uppercase"){
-        response = "HELLO JSON";
-    } else {
-        response = "Hello json";
-    }
-    // res.json({"message": process.env.MESSAGE_STYLE == "uppercase" ? "HELLO JSON" : "Hello json"})
-    res.json({"message": response})
+    var obj = process.env.MESSAGE_STYLE === "uppercase" ? {"message": response.toUpperCase()} : {"message": response};
+    res.json(obj)
 })
 
 
