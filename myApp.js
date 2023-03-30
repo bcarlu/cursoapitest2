@@ -26,8 +26,9 @@ app.get("/", function(req, res){
 
 // Fifth exercise
 app.get("/json", function(req, res){
-    var obj = process.env.MESSAGE_STYLE == "uppercase" ? {"message": "HELLO JSON"} : {"message": "Hello json"};
-    res.json(obj);
+    // var obj = process.env.MESSAGE_STYLE == "uppercase" ? {"message": "HELLO JSON"} : {"message": "Hello json"};
+    // res.json(obj);
+    res.json({"message": process.env.MESSAGE_STYLE == "uppercase" ? "HELLO JSON" : "Hello json"})
 })
 
 
