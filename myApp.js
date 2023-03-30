@@ -28,7 +28,14 @@ app.get("/", function(req, res){
 app.get("/json", function(req, res){
     // var obj = process.env.MESSAGE_STYLE == "uppercase" ? {"message": "HELLO JSON"} : {"message": "Hello json"};
     // res.json(obj);
-    res.json({"message": process.env.MESSAGE_STYLE == "uppercase" ? "HELLO JSON" : "Hello json"})
+    var response = "Hello json";
+    if(process.env.MESSAGE_STYLE === "uppercase"){
+        response = "HELLO JSON";
+    } else {
+        response = "Hello json";
+    }
+    // res.json({"message": process.env.MESSAGE_STYLE == "uppercase" ? "HELLO JSON" : "Hello json"})
+    res.json({"message": response})
 })
 
 
