@@ -46,7 +46,11 @@ app.get("/now", function(req,res,next){
     res.send({time: req.time});
 })
 
-
+// Eighth exercise
+app.get("/:word/echo", function(req,res){
+    var word = req.params.word;
+    res.json({echo: word})
+})
 
 
 
