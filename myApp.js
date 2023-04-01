@@ -1,6 +1,7 @@
 require('dotenv').config();
 let express = require('express');
 let app = express();
+let bodyParser = require('body-parser');
 
 
 // Fist exercise
@@ -18,6 +19,9 @@ app.use(function(req, res, next){
     console.log(message);
     next();
 })
+
+// Tenth exercise
+app.use(bodyParser.urlencoded({extended: false}));
 
 // Second exercise
 app.get("/", function(req, res){
@@ -58,6 +62,7 @@ app.get("/name", function(req,res){
     var lastname = req.query.last;
     res.json({name: firstname + " " + lastname})
 })
+
 
 
 
